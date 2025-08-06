@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance Report</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+        }
+        /* Custom scrollbar for the sidebar */
+        .sidebar-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: #4a5568 #2d3748;
+        }
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-track {
+            background: #2d3748;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background-color: #4a5568;
+            border-radius: 4px;
+            border: 2px solid #2d3748;
+        }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-800 text-white flex flex-col shadow-lg overflow-y-auto sidebar-scroll">
+        <div class="p-6 bg-gray-900 rounded-br-lg">
+            <h1 class="text-2xl font-bold text-green-400">Smart Attendance</h1>
+        </div>
+        <nav class="mt-8 flex-grow">
+            <ul>
+                <li class="mb-2">
+                    <a href="#" class="flex items-center p-4 text-gray-200 hover:bg-gray-700 hover:text-white transition-colors duration-200 rounded-r-full">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="flex items-center justify-between p-4 text-gray-200 hover:bg-gray-700 hover:text-white transition-colors duration-200 rounded-r-full">
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            View
+                        </span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="flex items-center justify-between p-4 text-gray-200 hover:bg-gray-700 hover:text-white transition-colors duration-200 rounded-r-full">
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                            Edit
+                        </span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="flex items-center justify-between p-4 text-gray-200 hover:bg-gray-700 hover:text-white transition-colors duration-200 rounded-r-full">
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                            Insert
+                        </span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="flex items-center justify-between p-4 text-gray-200 hover:bg-gray-700 hover:text-white transition-colors duration-200 rounded-r-full">
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                            Delete
+                        </span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#" class="flex items-center p-4 text-gray-200 hover:bg-gray-700 hover:text-white transition-colors duration-200 rounded-r-full">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M18 14v4a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2h4"></path></svg>
+                        Graphs
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Top Nav Bar -->
+        <header class="flex items-center justify-between p-4 bg-white shadow-md rounded-bl-lg">
+            <div class="text-xl font-semibold text-gray-800 hidden md:block">Smart Attendance</div>
+            <div class="relative w-full max-w-sm md:max-w-md lg:max-w-lg">
+                <input type="text" placeholder="Search..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+            <div class="container mx-auto px-4 py-6">
+                <!-- Student Attendance Report Section -->
+                <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                    <h2 class="text-2xl font-semibold text-green-600 mb-6 border-b pb-4">Student Attendance Report</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="dormitory" class="block text-gray-700 text-sm font-bold mb-2">Select Dormitory</label>
+                            <select id="dormitory" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-blue-500">
+                                <option>Dorm 1</option>
+                                <option>Dorm 2</option>
+                                <option>Dorm 3</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Select Date</label>
+                            <input type="date" id="date" value="2018-02-04" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                    <div class="flex space-x-4">
+                        <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-colors duration-200">
+                            Submit
+                        </button>
+                        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-lg shadow-md transition-colors duration-200">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Student Attendance Table -->
+                <div class="bg-white p-6 rounded-lg shadow-md overflow-x-auto">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Student Attendance:</h2>
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider rounded-tl-lg">Id</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Attendance</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider rounded-tr-lg">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">20193290764</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">R. Priyanka</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-red-500">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2018-02-04 15:15:24</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">20193290765</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Amir Shah</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-green-500">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2018-02-04 15:15:24</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">20193290766</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Karim Khan</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-green-500">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2018-02-04 15:15:24</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">20193290767</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Md. Golam Saklayen</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-green-500">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2018-02-04 15:15:24</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">20193290768</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Mohsin Khandakar</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-green-500">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2018-02-04 15:15:24</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">20193290769</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Shifat Zaman</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-green-500">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2018-02-04 15:15:24</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">20193290770</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Abu Bakar</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-green-500">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2018-02-04 15:15:24</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
